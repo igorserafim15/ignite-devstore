@@ -1,7 +1,12 @@
 import { api } from '@/data/api'
 import { Product } from '@/data/interfaces'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Home',
+}
 
 async function getFeaturedProducts(): Promise<Product[]> {
   const response = await api('/products/featured', {
@@ -44,7 +49,7 @@ export default async function Home() {
         <Link
           key={product.id}
           className="group relative col-span-3 row-span-3 rounded-lg bg-zinc-900 overflow-hidden flex justify-center items-center"
-          href={`/products/${product.slug}`}
+          href={`/product/${product.slug}`}
         >
           <Image
             src={product.image}
