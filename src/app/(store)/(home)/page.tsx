@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 }
 
 async function getFeaturedProducts(): Promise<Product[]> {
-  const response = await api('/products/featured', {
+  const response = await api('/product/featured', {
     next: { revalidate: 60 * 60 },
   })
   const products = await response.json()
